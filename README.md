@@ -1,3 +1,4 @@
+``` html
 //      資料結構  
 │  
 │── assets/   
@@ -10,7 +11,8 @@
 │   └── admin.html      # 後台 HTML  
 │   
 │── js/   
-│   │── all.js          # 前台 JS  
-│   │── admin.js        # 後台 JS  
-│   │── config.js       # 套件、金鑰  
-│   └── default.js      # 助教寫好的 JS  
+    │── all.js          # 前台 JS  
+    │── admin.js        # 後台 JS  
+    │── config.js       # 套件、金鑰  
+    └── default.js      # 助教寫好的 JS  
+```
