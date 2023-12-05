@@ -156,8 +156,8 @@ function renderProduct(data) {
             <img src="${product.images}" alt="">
             <a href="#" class="addCardBtn" data-id="${product.id}">加入購物車</a>
             <h3>${product.title}</h3>
-            <del class="originPrice">NT$${product.origin_price}</del>
-            <p class="nowPrice">NT$${product.price}</p>
+            <del class="originPrice">NT$${thousands(product.origin_price)}</del>
+            <p class="nowPrice">NT$${thousands(product.price)}</p>
         </li>`;
     })
     productWrap.innerHTML = str;
@@ -182,7 +182,7 @@ function renderCart(){
                             <p>Antony ${i.product.title}</p>
                         </div>
                     </td>
-                    <td>NT$${i.product.price}</td>
+                    <td>NT$${thousands(i.product.price)}</td>
                     <td>${i.quantity}</td>
                     <td>NT$${i.product.price * i.quantity}</td>
                     <td class="discardBtn">
@@ -197,7 +197,7 @@ function renderCart(){
             // 購物車總金額
             finalTotal = res.data.finalTotal;
             // 渲染畫面
-            document.querySelector('.cartFinalTotal').textContent = `NT$ ${finalTotal}`;
+            document.querySelector('.cartFinalTotal').textContent = `NT$ ${thousands(finalTotal)}`;
         })
         .catch(err=>{console.log(err.message)})
 }
@@ -242,4 +242,9 @@ function submitForm() {
             customerTradeWay.value = 'ATM';
         })
         .catch(err => {console.log(err.message)});
+}
+
+// 函式：千分位加Comma
+function thousands(number) {
+    return number.toLocaleString('en-US');
 }
